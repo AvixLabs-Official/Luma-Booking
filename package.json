@@ -1,0 +1,19 @@
+{
+  "name": "luma-appointment-booking",
+  "version": "1.0.0",
+  "description": "LUMA STUDIO - Premium Appointment & Service Booking Platform",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "appointment-booking",
+    "salon-booking",
+    "wellness-scheduling",
+    "saas-booking-engine",
+    "freelance-demo"
+  ],
+  "author": "Antigravity Freelance Demo",
+  "license": "MIT"
+}

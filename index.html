@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LUMA — Appointment & Service Booking</title>
+  <meta name="description" content="LUMA makes it simple to discover services, choose trusted professionals, and book appointments that fit your schedule. Modern wellness & beauty studio.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/booking.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       HEADER & NAVIGATION
+       ========================================================================== -->
+  <header class="header" id="main-header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" aria-label="LUMA Studio Home">
+        <span class="brand-name">LUMA</span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#professionals" class="nav-link">Professionals</a></li>
+          <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions nav-actions-desktop">
+        <button class="btn btn-outline my-bookings-btn trigger-dashboard-btn">
+          My Bookings <span class="badge-count" id="my-bookings-count-badge">1</span>
+        </button>
+        <button class="btn btn-primary trigger-booking-btn">Book Now →</button>
+      </div>
+
+      <button class="mobile-toggle" id="mobile-menu-toggle" aria-label="Toggle Navigation">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Overlay Menu -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="mobile-drawer-header">
+      <span class="brand-name">LUMA</span>
+      <button class="modal-close-btn" id="mobile-drawer-close" style="color:#FFF;">✕</button>
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#professionals">Professionals</a></li>
+      <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+    <div style="display:flex; flex-direction:column; gap:12px;">
+      <button class="btn btn-outline trigger-dashboard-btn" style="width:100%;">My Bookings</button>
+      <button class="btn btn-primary trigger-booking-btn" style="width:100%;">Book an Appointment →</button>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       HERO SECTION
+       ========================================================================== -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="reveal-on-scroll">
+          <span class="section-tag">WELCOME TO LUMA STUDIO</span>
+          <h1 class="hero-headline">
+            YOUR TIME,<br>
+            BEAUTIFULLY<br>
+            <span>BOOKED.</span>
+          </h1>
+          <p class="hero-desc">
+            Discover thoughtful services, trusted professionals, and appointment times that work seamlessly around your schedule.
+          </p>
+
+          <div style="display:flex; gap:16px; flex-wrap:wrap;">
+            <button class="btn btn-primary trigger-booking-btn">Book an Appointment →</button>
+            <a href="#services" class="btn btn-outline">Explore Services</a>
+          </div>
+
+          <div class="hero-shortcuts-box">
+            <span style="font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; color:var(--text-muted);">What are you looking for?</span>
+            <div class="shortcut-pills">
+              <button class="sc-pill trigger-booking-btn" data-service-id="srv-03">Hair Styling</button>
+              <button class="sc-pill trigger-booking-btn" data-service-id="srv-01">Facial Ritual</button>
+              <button class="sc-pill trigger-booking-btn" data-service-id="srv-02">Massage Therapy</button>
+              <button class="sc-pill trigger-booking-btn" data-service-id="srv-04">Pilates Session</button>
+              <button class="sc-pill trigger-booking-btn" data-service-id="srv-05">Consultation</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual-box reveal-on-scroll">
+          <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=1000&auto=format&fit=crop" alt="Luma Studio Wellness Experience">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SERVICES CATALOG & FILTER ENGINE
+       ========================================================================== -->
+  <section class="section-padding" id="services" style="background-color:var(--bg-secondary);">
+    <div class="container">
+      <div class="section-header-flex reveal-on-scroll">
+        <div>
+          <span class="section-tag">CURATED SERVICES</span>
+          <h2>Find the right service.</h2>
+          <p class="subheading">Botanical skin treatments, deep bodywork, movement, and wellness consultations.</p>
+        </div>
+
+        <div style="max-width:280px; width:100%;">
+          <input type="text" id="landing-service-search" placeholder="Search services..." class="form-control" style="background:#FFF;">
+        </div>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="cat-pills-bar reveal-on-scroll" id="landing-category-pills">
+        <button class="cat-pill active" data-category="all">All Services</button>
+        <button class="cat-pill" data-category="skin">Skin Therapy</button>
+        <button class="cat-pill" data-category="wellness">Body & Wellness</button>
+        <button class="cat-pill" data-category="beauty">Hair & Beauty</button>
+        <button class="cat-pill" data-category="movement">Movement</button>
+        <button class="cat-pill" data-category="consultation">Consultation</button>
+      </div>
+
+      <!-- Dynamic Service Cards -->
+      <div class="landing-services-grid reveal-on-scroll" id="landing-services-grid">
+        <!-- Rendered dynamically by js/forms.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       PROFESSIONALS / TEAM
+       ========================================================================== -->
+  <section class="section-padding" id="professionals">
+    <div class="container">
+      <div class="reveal-on-scroll" style="margin-bottom:48px;">
+        <span class="section-tag">OUR SPECIALISTS</span>
+        <h2>Meet the Professionals</h2>
+        <p class="subheading">Experienced practitioners committed to your personal care and wellbeing.</p>
+      </div>
+
+      <div class="team-grid reveal-on-scroll">
+        <div class="pro-card">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&auto=format&fit=crop" alt="Maya Sen" class="pro-avatar">
+          <h3 class="pro-name">Maya Sen</h3>
+          <div class="pro-role-text">Senior Wellness Specialist</div>
+          <div class="pro-rating-text">★ 4.9 (142 Reviews) • 9+ Yrs Exp</div>
+          <button class="btn btn-outline btn-sm trigger-booking-btn" data-provider-id="pro-01">Book Maya →</button>
+        </div>
+
+        <div class="pro-card">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400&auto=format&fit=crop" alt="Arjun Rao" class="pro-avatar">
+          <h3 class="pro-name">Arjun Rao</h3>
+          <div class="pro-role-text">Movement Coach</div>
+          <div class="pro-rating-text">★ 5.0 (98 Reviews) • 7+ Yrs Exp</div>
+          <button class="btn btn-outline btn-sm trigger-booking-btn" data-provider-id="pro-02">Book Arjun →</button>
+        </div>
+
+        <div class="pro-card">
+          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=400&auto=format&fit=crop" alt="Rhea Kapoor" class="pro-avatar">
+          <h3 class="pro-name">Rhea Kapoor</h3>
+          <div class="pro-role-text">Skin Therapist</div>
+          <div class="pro-rating-text">★ 4.85 (116 Reviews) • 6+ Yrs Exp</div>
+          <button class="btn btn-outline btn-sm trigger-booking-btn" data-provider-id="pro-03">Book Rhea →</button>
+        </div>
+
+        <div class="pro-card">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop" alt="Nikhil Mehta" class="pro-avatar">
+          <h3 class="pro-name">Nikhil Mehta</h3>
+          <div class="pro-role-text">Senior Hair Specialist</div>
+          <div class="pro-rating-text">★ 4.92 (84 Reviews) • 8+ Yrs Exp</div>
+          <button class="btn btn-outline btn-sm trigger-booking-btn" data-provider-id="pro-04">Book Nikhil →</button>
+        </div>
+
+        <div class="pro-card">
+          <img src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?q=80&w=400&auto=format&fit=crop" alt="Tara Bose" class="pro-avatar">
+          <h3 class="pro-name">Tara Bose</h3>
+          <div class="pro-role-text">Wellness Consultant</div>
+          <div class="pro-rating-text">★ 4.95 (160 Reviews) • 10+ Yrs Exp</div>
+          <button class="btn btn-outline btn-sm trigger-booking-btn" data-provider-id="pro-05">Book Tara →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       HOW IT WORKS
+       ========================================================================== -->
+  <section class="section-padding" id="how-it-works" style="background-color:var(--bg-secondary);">
+    <div class="container">
+      <div class="reveal-on-scroll" style="margin-bottom:48px;">
+        <span class="section-tag">SIMPLE SCHEDULING</span>
+        <h2>How LUMA Works</h2>
+      </div>
+
+      <div class="steps-grid reveal-on-scroll">
+        <div class="step-card">
+          <span class="step-num">01</span>
+          <h3>CHOOSE</h3>
+          <p style="color:var(--text-muted); margin-top:8px;">Explore our botanical treatments, movement sessions, and expert practitioners to find your fit.</p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-num">02</span>
+          <h3>SCHEDULE</h3>
+          <p style="color:var(--text-muted); margin-top:8px;">Pick your preferred specialist, date, and live available time slot in less than 60 seconds.</p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-num">03</span>
+          <h3>ARRIVE</h3>
+          <p style="color:var(--text-muted); margin-top:8px;">Receive instant SMS & calendar reminders. We'll take care of every detail upon your arrival.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       WHY LUMA & TESTIMONIALS
+       ========================================================================== -->
+  <section class="section-padding" id="about">
+    <div class="container">
+      <div class="reveal-on-scroll" style="margin-bottom:48px;">
+        <span class="section-tag">TESTIMONIALS & REVIEWS</span>
+        <h2>What Clients Say</h2>
+      </div>
+
+      <div class="testimonials-grid reveal-on-scroll">
+        <div class="testimonial-card">
+          <p style="font-family:var(--font-display); font-size:1.2rem; font-style:italic; margin-bottom:20px;">
+            "Booking took less than a minute, and the entire experience felt incredibly considered and peaceful."
+          </p>
+          <div style="font-weight:700;">— Ananya Kapoor</div>
+          <div style="font-size:0.8rem; color:var(--color-accent); font-weight:600; text-transform:uppercase;">Regular Wellness Member</div>
+        </div>
+
+        <div class="testimonial-card">
+          <p style="font-family:var(--font-display); font-size:1.2rem; font-style:italic; margin-bottom:20px;">
+            "The live time slot availability and seamless rescheduling features make managing my routine effortless."
+          </p>
+          <div style="font-weight:700;">— Dev Malhotra</div>
+          <div style="font-size:0.8rem; color:var(--color-accent); font-weight:600; text-transform:uppercase;">Pilates Client</div>
+        </div>
+
+        <div class="testimonial-card">
+          <p style="font-family:var(--font-display); font-size:1.2rem; font-style:italic; margin-bottom:20px;">
+            "Rhea's facial therapy completely transformed my skin texture. LUMA Studio is my monthly sanctuary."
+          </p>
+          <div style="font-weight:700;">— Priya Sharma</div>
+          <div style="font-size:0.8rem; color:var(--color-accent); font-weight:600; text-transform:uppercase;">Skin Therapy Client</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FOOTER & LOCATION
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <span class="brand-name" style="color:#FFF;">LUMA</span>
+          <p style="color:#A09E96; font-size:0.9rem; margin-top:12px; max-width:320px;">
+            A modern studio for beauty, wellness, movement, and mindful self-care. Book your time. Make it count.
+          </p>
+        </div>
+
+        <div>
+          <h4 style="color:#FFF; font-size:1.1rem; margin-bottom:16px;">Quick Navigation</h4>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:10px; font-size:0.9rem; color:#A09E96;">
+            <li><a href="#services">All Services</a></li>
+            <li><a href="#professionals">Specialists</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#about">About LUMA</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 style="color:#FFF; font-size:1.1rem; margin-bottom:16px;">Opening Hours</h4>
+          <p style="color:#A09E96; font-size:0.88rem; line-height:1.7;">
+            Monday — Friday<br>9:00 AM — 6:00 PM<br><br>
+            Saturday<br>10:00 AM — 4:00 PM<br><br>
+            Sunday — Closed
+          </p>
+        </div>
+
+        <div>
+          <h4 style="color:#FFF; font-size:1.1rem; margin-bottom:16px;">Studio Location</h4>
+          <p style="color:#A09E96; font-size:0.88rem; line-height:1.7;">
+            <strong>LUMA STUDIO</strong><br>
+            18 Willow Lane<br>
+            Kolkata, West Bengal<br><br>
+            Phone: +91 90000 00000<br>
+            Email: <a href="mailto:hello@lumastudio.demo" style="color:var(--color-accent);">hello@lumastudio.demo</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 LUMA STUDIO. All rights reserved.</div>
+        <div style="font-style:italic;">LUMA Studio is a fictional portfolio demonstration project.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       MODALS ENGINE
+       ========================================================================== -->
+
+  <!-- Multi-Step Booking Wizard Modal -->
+  <div class="modal-overlay" id="booking-wizard-modal">
+    <div class="booking-modal-wrapper">
+      <div class="booking-wizard-header">
+        <div class="progress-header-strip" id="booking-progress-header">
+          <!-- Rendered dynamically -->
+        </div>
+        <button class="modal-close-btn" id="booking-modal-close">✕</button>
+      </div>
+      <div class="wizard-body-content" id="booking-step-content">
+        <!-- Rendered dynamically by js/booking.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Success Receipt Modal -->
+  <div class="modal-overlay" id="success-modal">
+    <div id="success-modal-content">
+      <!-- Rendered dynamically by js/booking.js -->
+    </div>
+  </div>
+
+  <!-- Customer Portal / My Bookings Modal -->
+  <div class="modal-overlay" id="dashboard-modal">
+    <div class="dashboard-modal-wrapper">
+      <button class="modal-close-btn" id="dashboard-modal-close">✕</button>
+      <div id="dashboard-modal-content">
+        <!-- Rendered dynamically by js/dashboard.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Reschedule Modal -->
+  <div class="modal-overlay" id="reschedule-modal">
+    <div id="reschedule-modal-content">
+      <!-- Rendered dynamically by js/dashboard.js -->
+    </div>
+  </div>
+
+  <!-- Cancel Confirmation Modal -->
+  <div class="modal-overlay" id="cancel-confirm-modal">
+    <div class="modal-box" style="max-width:480px; background:#FFF;" id="cancel-modal-content">
+      <!-- Rendered dynamically by js/dashboard.js -->
+    </div>
+  </div>
+
+  <!-- Application Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/availability.js"></script>
+  <script src="js/calendar.js"></script>
+  <script src="js/booking.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/forms.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
