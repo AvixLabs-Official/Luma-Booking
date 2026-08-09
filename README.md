@@ -1,51 +1,50 @@
-# LUMA Studio — Service & Appointment Booking Platform
+# LUMA Studio Booking
 
-![LUMA Booking](https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=1200&auto=format&fit=crop)
+Modern appointment booking interface for service businesses with service selection and scheduling flows.
 
-**LUMA Studio** is a full-featured appointment and service booking web application with multi-step booking workflows, dynamic specialist availability, time-slot selection, and appointment management.
+## Live Demo
 
----
-
-## 🚀 Live Demo
-
-- **Public Live Application**: [https://luma-booking.onrender.com/](https://luma-booking.onrender.com/)
+- **[View Live Demo](https://luma-booking.onrender.com/)**
 - **GitHub Repository**: [https://github.com/AvixLabs-Official/Luma-Booking](https://github.com/AvixLabs-Official/Luma-Booking)
 
----
+## Overview
 
-## ✨ Key Features
+LUMA Studio is an interactive service booking web application built for wellness studios, beauty salons, and professional service businesses.
 
-- **Multi-Step Booking Wizard**: 4-step workflow (Service Selection → Specialist Choice → Date/Time Slot → Client Confirmation).
-- **Dynamic Calendar & Time Slots**: Real-time slot availability generator filtered by selected specialist.
-- **My Appointments Dashboard**: View, reschedule, or cancel upcoming appointments stored in LocalStorage.
-- **Service Category Filtering**: Hair Styling, Skincare Treatments, Spa Therapies, and Bridal Packages.
+The application guides clients through a 4-step booking wizard, allowing them to choose services, select individual specialists, pick available date/time slots, and confirm appointments.
 
----
+> **Disclaimer**: This is a portfolio demonstration project and not a client project.
 
-## 🛠️ Tech Stack
+## Features
 
-- **Frontend**: HTML5, Vanilla CSS3, JavaScript (ES6+)
-- **Backend**: Node.js `server.js` HTTP Server
-- **Deployment**: Render Web Service
+- 4-Step guided booking wizard (Service → Specialist → Date/Time → Confirmation)
+- Dynamic date picker & real-time time slot availability matrix
+- Specialist selection with bio and ratings preview
+- Customer appointment dashboard stored via LocalStorage
+- Service category filtering
 
----
+## Technologies
 
-## 💻 Local Installation & Setup
+- HTML5
+- CSS3 (Clean Minimal Design Tokens)
+- JavaScript (ES6+ Calendar & Wizard State)
+- Node.js HTTP Server (`server.js`)
 
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/AvixLabs-Official/Luma-Booking.git
-   cd Luma-Booking
-   ```
+## Screenshots
 
-2. **Start Node Server**:
-   ```bash
-   node server.js
-   ```
-   Open `http://localhost:8085` in your browser.
+![LUMA Booking Interface](images/luma_booking_preview.jpg)
 
----
+## Responsive Design
 
-## 📄 License
+Engineered and tested across viewports:
+- Desktop (1440px +)
+- Tablet (768px – 1024px)
+- Mobile (360px – 480px)
 
-Developed by **[Avix / AvixLabs](https://github.com/AvixLabs-Official)**. Released under the MIT License.
+## Project Type
+
+Portfolio Demonstration · Booking System
+
+## Disclaimer
+
+This project is a portfolio demonstration created to showcase frontend development, UI/UX, and interactive web-development capabilities. It is not presented as client work.
