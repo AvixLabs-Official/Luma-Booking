@@ -194,7 +194,10 @@ function renderStep2Provider(container) {
               <div class="pro-select-info">
                 <h4>${pro.name}</h4>
                 <p class="pro-role">${pro.role}</p>
-                <div class="pro-rating">★ ${pro.rating} (${pro.reviewCount} Reviews)</div>
+                <div class="pro-rating" style="display:inline-flex; align-items:center; gap:4px;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#C28E5C" stroke="#C28E5C"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <span>${pro.rating} (${pro.reviewCount} Reviews)</span>
+                </div>
                 <p class="pro-bio">${pro.bio}</p>
               </div>
             </div>

@@ -1,104 +1,146 @@
 /* ==========================================================================
-   LUMA STUDIO - Responsive Reflow Stylesheet
-   360px, 375px, 390px, 430px, 768px, 1024px, 1280px, 1920px
+   LUMA STUDIO - Master Ultra-Responsive Stylesheet
+   Supports all screen sizes down to 250px (Mobile, Foldables, Tablets, Desktop)
    ========================================================================== */
 
+/* Zero Horizontal Overflow Lock */
+html, body {
+  width: 100% !important;
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+  position: relative !important;
+  margin: 0 !important;
+}
+
+* {
+  box-sizing: border-box !important;
+}
+
+h1, h2, h3, h4, .hero-headline, .pro-name, .landing-srv-title, .srv-select-title {
+  overflow-wrap: anywhere !important;
+  word-break: break-word !important;
+}
+
 @media (max-width: 1100px) {
-  .hero-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .landing-services-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .team-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 36px;
-  }
+  .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+  .landing-services-grid { grid-template-columns: repeat(2, 1fr); }
+  .team-grid { grid-template-columns: repeat(3, 1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
 }
 
 @media (max-width: 900px) {
-  .nav-links, .nav-actions-desktop {
-    display: none;
+  .nav-links, .nav-actions-desktop { display: none !important; }
+  .mobile-toggle { display: flex !important; align-items: center; justify-content: center; }
+  .services-select-grid, .providers-select-grid { grid-template-columns: 1fr !important; }
+  .time-slots-grid { grid-template-columns: repeat(3, 1fr) !important; }
+  .steps-grid, .testimonials-grid { grid-template-columns: 1fr !important; }
+}
+
+@media (max-width: 768px) {
+  /* Show Mobile Bottom Navigation Dock */
+  .mobile-bottom-dock {
+    display: flex !important;
   }
 
-  .mobile-toggle {
-    display: block;
+  body {
+    padding-bottom: 70px !important;
   }
 
-  .services-select-grid,
-  .providers-select-grid {
-    grid-template-columns: 1fr;
+  .cat-pills-bar, .shortcut-pills {
+    display: flex !important;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+    padding-bottom: 8px !important;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
   }
 
-  .time-slots-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .steps-grid, .testimonials-grid {
-    grid-template-columns: 1fr;
+  .cat-pill, .sc-pill {
+    scroll-snap-align: start;
+    flex-shrink: 0 !important;
   }
 }
 
 @media (max-width: 650px) {
-  .container {
-    padding: 0 20px;
+  .container { padding: 0 16px !important; }
+  .section-padding { padding: 50px 0 !important; }
+  
+  .hero-headline {
+    font-size: clamp(1.8rem, 8vw, 2.6rem) !important;
+    line-height: 1.15 !important;
   }
 
-  .section-padding {
-    padding: 70px 0;
+  .landing-services-grid { grid-template-columns: 1fr !important; }
+  .team-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .time-slots-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* Booking Wizard Modal Responsive Drawer */
+  .booking-modal-wrapper, .dashboard-modal-wrapper {
+    max-width: 100% !important;
+    width: 100% !important;
+    max-height: 95vh !important;
+    margin: 0 !important;
+    border-radius: 16px 16px 0 0 !important;
   }
 
-  .landing-services-grid {
-    grid-template-columns: 1fr;
+  .booking-wizard-header {
+    padding: 16px 20px !important;
   }
 
-  .team-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .wizard-body-content {
+    padding: 20px 16px !important;
   }
 
-  .time-slots-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .wizard-step-header h2 {
+    font-size: 1.5rem !important;
   }
 
   .booking-item-card {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
   }
 
   .booking-card-actions {
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid var(--border-color);
-    padding-top: 12px;
+    flex-direction: row !important;
+    width: 100% !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    border-top: 1px solid var(--border-color) !important;
+    padding-top: 12px !important;
   }
 
-  .footer-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .footer-bottom {
-    flex-direction: column;
-    gap: 12px;
-    text-align: center;
-  }
+  .footer-grid { grid-template-columns: 1fr !important; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
 }
 
-@media (max-width: 400px) {
+/* Ultra-Narrow Mobile Screens (250px - 380px) */
+@media (max-width: 380px) {
+  .container { padding: 0 12px !important; }
+  .team-grid { grid-template-columns: 1fr !important; }
+  .time-slots-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  
   .hero-headline {
-    font-size: 2.4rem;
+    font-size: clamp(1.4rem, 7.5vw, 2.1rem) !important;
   }
 
-  .team-grid {
-    grid-template-columns: 1fr;
+  .btn {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  .hero-desc {
+    font-size: 0.88rem !important;
+  }
+
+  .service-select-card, .provider-select-card {
+    flex-direction: column !important;
+  }
+
+  .srv-select-img-box, .pro-avatar-box {
+    width: 100% !important;
+    height: 120px !important;
+    border-radius: 8px !important;
   }
 }
