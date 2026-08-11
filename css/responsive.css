@@ -89,6 +89,9 @@ h1, h2, h3, h4, .hero-headline, .pro-name, .landing-srv-title, .srv-select-title
     border-top-right-radius: 20px !important;
     border-bottom-left-radius: 0 !important;
     border-bottom-right-radius: 0 !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
   }
 
   /* Booking Wizard Modal */
@@ -131,8 +134,16 @@ h1, h2, h3, h4, .hero-headline, .pro-name, .landing-srv-title, .srv-select-title
   }
 
   /* Customer Dashboard / View My Bookings Modal */
+  #dashboard-modal-content {
+    flex: 1 !important;
+    min-height: 0 !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    width: 100% !important;
+  }
+
   .dashboard-box {
-    padding: 20px 16px !important;
+    padding: 20px 16px 50px 16px !important;
   }
 
   .dashboard-header h2 {

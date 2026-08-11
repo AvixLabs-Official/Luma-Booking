@@ -15,9 +15,15 @@
   flex-direction: column;
 }
 
+#dashboard-modal-content {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 .dashboard-box {
   padding: 36px;
-  overflow-y: auto;
 }
 
 .dashboard-header {
