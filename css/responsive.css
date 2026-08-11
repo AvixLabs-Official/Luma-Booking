@@ -137,26 +137,41 @@ h1, h2, h3, h4, .hero-headline, .pro-name, .landing-srv-title, .srv-select-title
   #dashboard-modal-content {
     flex: 1 !important;
     min-height: 0 !important;
-    overflow-y: auto !important;
-    -webkit-overflow-scrolling: touch !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
     width: 100% !important;
   }
 
   .dashboard-box {
-    padding: 20px 16px 50px 16px !important;
+    padding: 20px 16px 16px 16px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    max-height: 100% !important;
+    flex: 1 !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .dashboard-header {
+    flex-shrink: 0 !important;
+    margin-bottom: 12px !important;
   }
 
   .dashboard-header h2 {
-    font-size: 1.5rem !important;
+    font-size: 1.4rem !important;
   }
 
   .dashboard-tabs {
+    flex-shrink: 0 !important;
     display: flex !important;
     gap: 8px !important;
     overflow-x: auto !important;
     white-space: nowrap !important;
     border-bottom: 1px solid var(--border-color) !important;
     padding-bottom: 4px !important;
+    margin-bottom: 14px !important;
     -webkit-overflow-scrolling: touch;
   }
 
@@ -164,6 +179,16 @@ h1, h2, h3, h4, .hero-headline, .pro-name, .landing-srv-title, .srv-select-title
     padding: 8px 14px !important;
     font-size: 0.82rem !important;
     flex-shrink: 0 !important;
+  }
+
+  /* ISOLATED SCROLL FOR BOOKING CARDS ONLY */
+  .bookings-card-list {
+    flex: 1 !important;
+    min-height: 0 !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding-bottom: 30px !important;
+    padding-right: 2px !important;
   }
 
   .booking-item-card {
