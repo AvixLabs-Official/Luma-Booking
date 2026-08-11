@@ -71,6 +71,7 @@ function renderBookingStep() {
   const progressHeader = document.getElementById('booking-progress-header');
 
   if (!content) return;
+  content.scrollTop = 0;
 
   // Progress Header Indicator
   if (progressHeader) {

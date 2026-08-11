@@ -72,27 +72,168 @@ h1, h2, h3, h4, .hero-headline, .pro-name, .landing-srv-title, .srv-select-title
 
   .landing-services-grid { grid-template-columns: 1fr !important; }
   .team-grid { grid-template-columns: repeat(2, 1fr) !important; }
-  .time-slots-grid { grid-template-columns: repeat(2, 1fr) !important; }
 
   /* Booking Wizard Modal Responsive Drawer */
+  .modal-overlay {
+    padding: 0 !important;
+    align-items: flex-end !important;
+  }
+
   .booking-modal-wrapper, .dashboard-modal-wrapper {
     max-width: 100% !important;
     width: 100% !important;
-    max-height: 95vh !important;
+    max-height: 92vh !important;
+    height: 92vh !important;
     margin: 0 !important;
-    border-radius: 16px 16px 0 0 !important;
+    border-top-left-radius: 20px !important;
+    border-top-right-radius: 20px !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
   }
 
   .booking-wizard-header {
-    padding: 16px 20px !important;
+    padding: 14px 16px !important;
+    background-color: #FFF !important;
+    position: relative !important;
+  }
+
+  .progress-header-strip {
+    display: flex !important;
+    gap: 6px !important;
+    overflow-x: auto !important;
+    padding-bottom: 4px !important;
+    -webkit-overflow-scrolling: touch;
+    width: calc(100% - 36px) !important;
+  }
+
+  .progress-step-pill {
+    padding: 4px 10px !important;
+    font-size: 0.72rem !important;
+    flex-shrink: 0 !important;
   }
 
   .wizard-body-content {
-    padding: 20px 16px !important;
+    padding: 16px 16px 85px 16px !important;
+  }
+
+  .wizard-step-header {
+    margin-bottom: 16px !important;
   }
 
   .wizard-step-header h2 {
-    font-size: 1.5rem !important;
+    font-size: 1.4rem !important;
+    margin-bottom: 4px !important;
+  }
+
+  .wizard-step-header p {
+    font-size: 0.85rem !important;
+  }
+
+  /* Sticky Bottom Navigation Bar on Mobile */
+  .wizard-nav-actions {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    background-color: rgba(255, 255, 255, 0.96) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-top: 1px solid var(--border-color) !important;
+    padding: 12px 16px !important;
+    z-index: 100 !important;
+    margin-top: 0 !important;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08) !important;
+  }
+
+  .wizard-nav-actions .btn {
+    flex: 1 !important;
+    padding: 12px 14px !important;
+    font-size: 0.88rem !important;
+    justify-content: center !important;
+  }
+
+  /* Service & Provider Select Cards on Mobile */
+  .services-select-grid, .providers-select-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .service-select-card, .provider-select-card {
+    padding: 12px 14px !important;
+    gap: 12px !important;
+    border-radius: 12px !important;
+  }
+
+  .srv-select-img-box {
+    width: 64px !important;
+    height: 64px !important;
+    border-radius: 8px !important;
+  }
+
+  .pro-avatar-box {
+    width: 52px !important;
+    height: 52px !important;
+  }
+
+  .srv-select-title {
+    font-size: 1rem !important;
+    margin-bottom: 2px !important;
+  }
+
+  .srv-select-desc {
+    font-size: 0.78rem !important;
+    margin-bottom: 4px !important;
+  }
+
+  /* Calendar & Date Selection on Mobile */
+  .date-selection-container {
+    padding: 16px 14px !important;
+    border-radius: 12px !important;
+  }
+
+  .quick-dates-strip {
+    gap: 8px !important;
+  }
+
+  .date-pill {
+    padding: 8px 12px !important;
+    min-width: 72px !important;
+  }
+
+  .calendar-widget-box {
+    padding: 12px !important;
+  }
+
+  .calendar-day {
+    font-size: 0.82rem !important;
+  }
+
+  /* Time Slots Grid on Mobile */
+  .time-slots-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+
+  .time-slot-btn {
+    padding: 10px 8px !important;
+    min-height: 48px !important;
+    justify-content: center !important;
+  }
+
+  .slot-time-text {
+    font-size: 0.88rem !important;
+  }
+
+  /* Customer Details Form on Mobile */
+  .form-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+
+  .form-control {
+    font-size: 0.9rem !important;
+    padding: 10px 14px !important;
   }
 
   .booking-item-card {
@@ -118,7 +259,7 @@ h1, h2, h3, h4, .hero-headline, .pro-name, .landing-srv-title, .srv-select-title
 @media (max-width: 380px) {
   .container { padding: 0 12px !important; }
   .team-grid { grid-template-columns: 1fr !important; }
-  .time-slots-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .time-slots-grid { grid-template-columns: 1fr !important; }
   
   .hero-headline {
     font-size: clamp(1.4rem, 7.5vw, 2.1rem) !important;
@@ -140,7 +281,15 @@ h1, h2, h3, h4, .hero-headline, .pro-name, .landing-srv-title, .srv-select-title
 
   .srv-select-img-box, .pro-avatar-box {
     width: 100% !important;
-    height: 120px !important;
+    height: 100px !important;
     border-radius: 8px !important;
+  }
+
+  .wizard-body-content {
+    padding: 12px 12px 80px 12px !important;
+  }
+
+  .progress-step-pill span.step-name {
+    display: none !important;
   }
 }
