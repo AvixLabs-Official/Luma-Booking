@@ -87,9 +87,13 @@ function renderMonthCalendar(containerId, onSelectCallback, selectedDateStr = nu
 
   container.innerHTML = `
     <div class="calendar-header">
-      <button class="cal-nav-btn" id="cal-prev-month">‹</button>
+      <button class="cal-nav-btn" id="cal-prev-month" aria-label="Previous Month" style="display:inline-flex; align-items:center; justify-content:center;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
       <span class="cal-month-title">${monthName}</span>
-      <button class="cal-nav-btn" id="cal-next-month">›</button>
+      <button class="cal-nav-btn" id="cal-next-month" aria-label="Next Month" style="display:inline-flex; align-items:center; justify-content:center;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
     </div>
     <div class="calendar-weekdays">
       <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
