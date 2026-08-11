@@ -16,7 +16,7 @@ html, body {
   box-sizing: border-box !important;
 }
 
-h1, h2, h3, h4, .hero-headline, .pro-name, .landing-srv-title, .srv-select-title {
+h1, h2, h3, h4, .hero-headline, .pro-name, .landing-srv-title, .srv-select-title, .booking-title {
   overflow-wrap: anywhere !important;
   word-break: break-word !important;
 }
@@ -73,7 +73,7 @@ h1, h2, h3, h4, .hero-headline, .pro-name, .landing-srv-title, .srv-select-title
   .landing-services-grid { grid-template-columns: 1fr !important; }
   .team-grid { grid-template-columns: repeat(2, 1fr) !important; }
 
-  /* Booking Wizard Modal Responsive Drawer */
+  /* Modals Overlay Drawer on Mobile */
   .modal-overlay {
     padding: 0 !important;
     align-items: flex-end !important;
@@ -91,6 +91,7 @@ h1, h2, h3, h4, .hero-headline, .pro-name, .landing-srv-title, .srv-select-title
     border-bottom-right-radius: 0 !important;
   }
 
+  /* Booking Wizard Modal */
   .booking-wizard-header {
     padding: 14px 16px !important;
     background-color: #FFF !important;
@@ -127,6 +128,66 @@ h1, h2, h3, h4, .hero-headline, .pro-name, .landing-srv-title, .srv-select-title
 
   .wizard-step-header p {
     font-size: 0.85rem !important;
+  }
+
+  /* Customer Dashboard / View My Bookings Modal */
+  .dashboard-box {
+    padding: 20px 16px !important;
+  }
+
+  .dashboard-header h2 {
+    font-size: 1.5rem !important;
+  }
+
+  .dashboard-tabs {
+    display: flex !important;
+    gap: 8px !important;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+    border-bottom: 1px solid var(--border-color) !important;
+    padding-bottom: 4px !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .dash-tab-btn {
+    padding: 8px 14px !important;
+    font-size: 0.82rem !important;
+    flex-shrink: 0 !important;
+  }
+
+  .booking-item-card {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 14px !important;
+    padding: 16px !important;
+    border-radius: 14px !important;
+  }
+
+  .booking-card-main {
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    width: 100% !important;
+  }
+
+  .booking-provider-avatar {
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 50% !important;
+  }
+
+  .booking-title {
+    font-size: 1.05rem !important;
+  }
+
+  .booking-card-actions {
+    flex-direction: row !important;
+    width: 100% !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    border-top: 1px solid var(--border-color) !important;
+    padding-top: 12px !important;
+    margin-top: 4px !important;
   }
 
   /* Sticky Bottom Navigation Bar on Mobile */
@@ -236,21 +297,6 @@ h1, h2, h3, h4, .hero-headline, .pro-name, .landing-srv-title, .srv-select-title
     padding: 10px 14px !important;
   }
 
-  .booking-item-card {
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 16px !important;
-  }
-
-  .booking-card-actions {
-    flex-direction: row !important;
-    width: 100% !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    border-top: 1px solid var(--border-color) !important;
-    padding-top: 12px !important;
-  }
-
   .footer-grid { grid-template-columns: 1fr !important; }
   .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
 }
@@ -291,5 +337,19 @@ h1, h2, h3, h4, .hero-headline, .pro-name, .landing-srv-title, .srv-select-title
 
   .progress-step-pill span.step-name {
     display: none !important;
+  }
+
+  .booking-card-actions {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+  }
+
+  .booking-card-actions div {
+    width: 100% !important;
+  }
+
+  .booking-card-actions .btn {
+    flex: 1 !important;
   }
 }

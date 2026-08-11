@@ -95,8 +95,9 @@ function renderDashboardContent() {
                     </div>
                     <h4 class="booking-title">${b.serviceName}</h4>
                     <p class="booking-pro-meta">with ${b.providerName} • ${b.providerRole}</p>
-                    <div class="booking-datetime-tag">
-                      📅 ${formattedDate} @ <strong>${b.time}</strong> (${b.duration})
+                    <div class="booking-datetime-tag" style="display:inline-flex; align-items:center; gap:6px;">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                      <span>${formattedDate} @ <strong>${b.time}</strong> (${b.duration})</span>
                     </div>
                   </div>
                 </div>
@@ -104,8 +105,16 @@ function renderDashboardContent() {
                 <div class="booking-card-actions">
                   <span class="booking-price">${b.priceFormatted}</span>
                   ${b.status === 'Upcoming' ? `
-                    <button class="btn btn-outline btn-sm reschedule-btn" data-id="${b.id}">Reschedule</button>
-                    <button class="btn btn-outline btn-sm cancel-btn" data-id="${b.id}" style="color:#C84B31; border-color:#C84B31;">Cancel</button>
+                    <div style="display:flex; gap:8px;">
+                      <button class="btn btn-outline btn-sm reschedule-btn" data-id="${b.id}" style="display:inline-flex; align-items:center; gap:4px;">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
+                        <span>Reschedule</span>
+                      </button>
+                      <button class="btn btn-outline btn-sm cancel-btn" data-id="${b.id}" style="color:#C84B31; border-color:#C84B31; display:inline-flex; align-items:center; gap:4px;">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                        <span>Cancel</span>
+                      </button>
+                    </div>
                   ` : ''}
                 </div>
               </div>
