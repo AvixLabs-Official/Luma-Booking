@@ -718,3 +718,13 @@ h3 { font-size: clamp(1.4rem, 2.2vw, 1.8rem); }
 .mobile-dock-btn.active, .mobile-dock-btn:hover {
   color: #C28E5C;
 }
+
+/* Hide Mobile Bottom Dock when Side Panel Drawer or Modal is Open */
+body.drawer-open .mobile-bottom-dock,
+body:has(.mobile-drawer.active) .mobile-bottom-dock,
+body:has(.modal-overlay.active) .mobile-bottom-dock {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+}
